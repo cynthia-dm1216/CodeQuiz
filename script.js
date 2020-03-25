@@ -118,75 +118,56 @@ function renderCounter(){
         if(runningQuestion < lastQuestion){
             runningQuestion++;
             renderQs();
+        }else{
+            clearInterval(TIMER);
+            scoreRender();
         }
     }
-}
+};
+//checkingAnswers
+function checkAnswer(answer) {
+    if(answer == questions[runningQuestion].correct){
+        //correct answer
+        score++;
+        answerIsCorrect();
+    }else{
+        //end of quiz show Score
+        clearInterval(TIMER);
+        scoreRender();
+    }
+};
+
+//answer is correct background color green
+function answerIsCorrect(){
+    document.getElementById(runningQuestion).style.backgroundColor = "#0f0";
+    };
+
+    //wrong answer backgroung color red
+    function answerIsWrong(){
+        document.getElementById(runningQuestion).style.backgroundColor = "#f00";
+    };
+
+    //score render
+    function scoreRender(){
+        questiondiv.setAttribute("style","display:none;");
+        choicesdiv.setAttribute("style","display:none;");
+        progress.setAttribute("style","display:none;");
+        timer.setAttribute("style","display:none;");
+        quizPanel.setAttribute("style","display:none;");
+        gameOverDiv.setAttribute("style","display:none;");
+
+        scoreDiv.style.display = "block";
+
+    }
+
+    //Highscore Render
+    function highscoreRender(){
+        playerName = document.getElementById("playerInitials").value.trim();
+        console.log ("players Name");
+    }
 
 
 
 
 
 
-// function startGame() {
-//     console.log('Started')
-//     startButton.classList.add('hide')
-//     shuffleQuestions = questions.sort(() => Math.random() - .5)
-//     questionContainerElement.classList.remove('hide')
-//     currentQuestionIndex = 0
-//     finishButton.classList.add('hide')
-//     setNextQuestion()
-
-// }
-
-// function setNextQuestion() {
-//     resetState()
-//     showQuestion(shuffleQuestions[currentQuestionIndex])
-
-// }
-
-// function showQuestion(question) {
-//     questionElement.innerText = question.question
-//     question.answer.forEach(answer => {
-//         const button = document.createElement('button')
-//         button.innerText = answer.text
-//         button.classList.add('btn')
-//         if (answer.correct) {
-//             button.dataset.correct = anser.correct
-//         }
-//         button.addEventListener('click', selectAnswer)
-//         answerButtonElement.appendChild(button)
-//     })
-// }
-
-// function resetState() {
-//     nextButton.classList.add('hide')
-//     while (answerButtonsElement.firstChild) {
-//         answerButtonElement.removeChild
-//             (answerButtonsElement.firstChild)
-//     }
-// }
-
-// function selectAnswer(e) {
-//     const selectedButton = e.target
-//     const correct = selectedButton.dataset.correct
-//     setStatusClass(document.body, correct)
-//     Array.from(answerButtonsElements.children).forEach(button => {
-//         setStatusClass(button, button.dataset.correct)
-//     })
-// }
-// // if (shuffleQuestions.length > currentQuestionIndex + 1) {
-// //     nextButton.classList.remove('hide')
-// // } else {
-// //     finishButton.innerText = 'Finish'
-// //     nextButton.classList.remove('hide')
-// //     finishButton.classList.remove('hide')
-// // }
-
-// function setStatusClass(element, correct) {
-//     clearStatusClass(element)
-//     if (correct) {
-//         element.classList.add('correct')
-//     } else {
-//         element.classList.add('wrong')
-//     }
-// }
