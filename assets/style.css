@@ -2,9 +2,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-.jumbotron {
+/* .jumbotron {
     text-align: center;
-}
+} */
 
 :root {
     --hue-neutral: 200;
@@ -30,7 +30,8 @@ body{
 
 #quiz {
     margin-top: 90px;
-} */
+    
+} 
 
 .tab .tab a {
     background-color: cadetblue;
@@ -87,7 +88,7 @@ body{
     padding: 10px;
 }
 
-/* .container {
+.container {
     width: 800px;
     max-width: 50%;
     max-height: 65%;
@@ -96,14 +97,15 @@ body{
     border-radius: 5px;
     padding:10px;
     box-shadow: 0 0 10px 2px;
-} */
+    background-color: white;
+}
 
 .btn-grid {
     display: grid;
     gap: 10px;
     margin: 20px 0;
 }
-#timer {
+/* #timer {
     height: 100px;
     width: 200px;
     bottom: 0px;
@@ -157,7 +159,7 @@ body{
 #highscoreDiv {
     margin-right: 20px;
     color: red;
-}
+} */
 .btn {
     --hue: var(--hue-neutral);
     border: 1px solid hsl(var(--hue), 100% ,30%);
